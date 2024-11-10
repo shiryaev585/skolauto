@@ -10,6 +10,11 @@ body {
     @include sm-down {
         --header-height: 3.5rem;
     }
+
+    &._locked {
+        width: 100%;
+        overflow: hidden;
+    }
 }
 
 .page {

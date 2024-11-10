@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     modules: [
         '@nuxt/image',
         '@nuxtjs/tailwindcss',
+        '@pinia/nuxt'
     ],
     runtimeConfig: {
         public: {

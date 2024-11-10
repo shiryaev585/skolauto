@@ -8,6 +8,8 @@
                 <nuxt-link to="/">Главная</nuxt-link>
                 <nuxt-link to="/posts">Блог</nuxt-link>
                 <nuxt-link to="/contacts">Контакты</nuxt-link>
+
+                <button @click="globalStore.toggleBodyLocked">BTN</button>
             </nav>
         </div>
     </header>
@@ -15,6 +17,9 @@
 
 <script setup>
 const isScrolled = ref(false);
+import { useGlobalStore } from '~/stores/global';
+
+const globalStore = useGlobalStore();
 
 const checkScroll = () => {
     const currentScroll = window.scrollY > 5;
