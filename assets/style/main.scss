@@ -1,0 +1,19 @@
+html, body {
+    scrollbar-gutter: stable;
+}
+  
+body {
+    --header-height: 5rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @include sm-down {
+        --header-height: 3.5rem;
+    }
+}
+
+.page {
+    padding-top: var(--header-height);
+    min-height: calc(100vh - var(--header-height));
+}
+  
