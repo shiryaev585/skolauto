@@ -24,8 +24,20 @@ export default defineNuxtConfig({
     modules: [
         '@nuxt/image',
         '@nuxtjs/tailwindcss',
-        '@pinia/nuxt'
-    ],
+        '@pinia/nuxt',
+        ['@nuxtjs/google-fonts',
+            {
+                families: {
+                    Lato: {
+                        wght: [300, 400],
+                    },
+                    Raleway: {
+                        wght: [500, 700],
+                    }
+
+                }
+            }
+        ]],
     runtimeConfig: {
         public: {
             requestUrl: process.env.REQUEST_URL,

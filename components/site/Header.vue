@@ -1,16 +1,18 @@
 <template>
     <header :class="[
-        'header some fixed top-0 left-0 w-full flex items-center bg-slate-200',
+        'header some fixed top-0 left-0 w-screen flex items-center bg-slate-200',
         { '_scrolled backdrop-blur-md': isScrolled }
         ]">
         <div class="container flex items-center">
+            <nuxt-link to="/">
+                <ui-logo />
+            </nuxt-link>
             <nav>
-                <nuxt-link to="/">Главная</nuxt-link>
                 <nuxt-link to="/posts">Блог</nuxt-link>
                 <nuxt-link to="/contacts">Контакты</nuxt-link>
-
-                <button @click="globalStore.toggleBodyLocked">BTN</button>
             </nav>
+
+            <button @click="globalStore.toggleBodyLocked">BTN</button>
         </div>
     </header>
 </template>
@@ -43,7 +45,7 @@ onUnmounted(() => {
     height: var(--header-height);
 
     @include sm-down {
-        background: $red;
+        // background: $red;
     }
 
     &._scrolled {
