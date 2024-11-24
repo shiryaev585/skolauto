@@ -31,8 +31,8 @@ export default defineNuxtConfig({
                     Lato: {
                         wght: [300, 400],
                     },
-                    Raleway: {
-                        wght: [500, 700],
+                    Oswald: {
+                        wght: [400, 500, 700],
                     }
 
                 }

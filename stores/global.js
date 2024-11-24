@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 export const useGlobalStore = defineStore('global', {
     state: () => ({
         isBodyLocked: false,
-        isModal: false,
+        isPopup: false,
         showPreloader: false,
     }),
 
@@ -16,8 +16,8 @@ export const useGlobalStore = defineStore('global', {
                 : document.body.classList.remove('_locked');
         },
 
-        toggleModal(payload) {
-            this.isModal = payload;
+        togglePopup(payload) {
+            this.isPopup = payload;
             this.toggleBodyLocked();
         },
 
