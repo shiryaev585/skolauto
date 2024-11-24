@@ -17,7 +17,12 @@ export default {
         lg: '1440px',
       }
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        'main': ['Lato', 'sans-serif'],
+        'heading': ['Oswald', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

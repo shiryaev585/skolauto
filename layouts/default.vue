@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen">
+    <div class="bg-slate-50 min-h-screen">
         <site-header />
         <site-popup>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, accusamus?</p>

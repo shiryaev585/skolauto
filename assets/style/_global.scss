@@ -1,9 +1,6 @@
 $font-main: 'Lato', sans-serif;
 $font-heading: 'Oswald', sans-serif;
 
-
-$red: rgb(241, 57, 57);
-
 $xs: 768px;
 $sm: 1024px;
 $md: 1280px;
@@ -31,4 +28,8 @@ $lg: 1440px;
     @media only screen and (max-width: $lg) {
         @content;
     }
+}
+
+.heading {
+    @apply font-light tracking-widest uppercase text-center leading-relaxed;
 }

@@ -32,7 +32,7 @@ export default defineNuxtConfig({
                         wght: [300, 400],
                     },
                     Oswald: {
-                        wght: [400, 500, 700],
+                        wght: [300, 400, 500, 700],
                     }
 
                 }

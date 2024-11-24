@@ -1,6 +1,6 @@
 <template>
     <header :class="[
-        'header some fixed top-0 left-0 w-screen flex items-center bg-slate-200',
+        'header fixed top-0 left-0 w-screen flex items-center bg-slate-200 z-10',
         { '_scrolled backdrop-blur-md': isScrolled }
         ]">
         <div class="container flex items-center justify-between">
@@ -9,9 +9,9 @@
             </nuxt-link>
             <div class="flex">
                 <nav class="header__nav flex items-center">
-                    <nuxt-link to="/about" class="header__nav-link uppercase tracking-widest hover:opacity-50 transition-opacity duration-300">О нас</nuxt-link>
-                    <nuxt-link to="/posts" class="header__nav-link uppercase tracking-widest hover:opacity-50 transition-opacity duration-300">Блог</nuxt-link>
-                    <nuxt-link to="/contacts" class="header__nav-link uppercase tracking-widest hover:opacity-50 transition-opacity duration-300">Контакты</nuxt-link>
+                    <nuxt-link to="/about" class="header__nav-link font-heading uppercase tracking-widest hover:opacity-50 transition-opacity duration-300">О нас</nuxt-link>
+                    <nuxt-link to="/posts" class="header__nav-link font-heading uppercase tracking-widest hover:opacity-50 transition-opacity duration-300">Блог</nuxt-link>
+                    <nuxt-link to="/contacts" class="header__nav-link font-heading uppercase tracking-widest hover:opacity-50 transition-opacity duration-300">Контакты</nuxt-link>
                 </nav>
 
                 <a class="flex items-center ml-8 text-sm" href="tel:+79998887766">+7(999)888-77-66</a>
@@ -61,9 +61,6 @@ onUnmounted(() => {
         gap: 2rem;
 
         &-link {
-            font-family: $font-heading;
-            font-weight: 400;
-
             &.router-link-active {
                 pointer-events: none;
                 opacity: .5;
