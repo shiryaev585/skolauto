@@ -7,6 +7,7 @@
         <slot></slot>
     </component>
 </template>
+
 <script setup>
 defineProps({
     url:{
