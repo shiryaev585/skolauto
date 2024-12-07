@@ -1,8 +1,8 @@
 <template>
     <div class="page">
-        <div class="container mt-16 text-xl">
-            <h1 class="mb-16 text-5xl">Блог</h1>
-            <span class="mb-2 inline-block">В блоге рассмотрены актуальные вопросы ремонта автостекла:</span>
+        <div class="container section-top-offset text-xl">
+            <h1 class=" text-5xl">Блог</h1>
+            <span class="inner-top-offset mb-2 inline-block">В блоге рассмотрены актуальные вопросы ремонта автостекла:</span>
             <ul class="list-disc pl-7 text-xl">
                 <li>принцип ремонта;</li>
                 <li>что сделать до ремонта;</li>
@@ -10,7 +10,7 @@
                 <li>распространённые мифы о ремонта автостекла.</li>
             </ul>
         </div>
-        <div class="container grid sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-16 mb-16">
+        <div class="container section-top-offset grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
             <post-card
                 v-for="post in posts"
                 :key="post?.id"

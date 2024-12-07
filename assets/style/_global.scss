@@ -33,3 +33,19 @@ $lg: 1440px;
 .heading {
     @apply font-light tracking-widest uppercase text-center leading-relaxed;
 }
+
+.section-heading {
+    @apply font-light text-4xl tracking-widest uppercase leading-relaxed;
+}
+
+.link-hover {
+    @apply hover:opacity-50 transition-opacity duration-300;
+}
+
+.section-top-offset {
+    @apply mt-8 lg:mt-16;
+}
+
+.inner-top-offset {
+    @apply mt-4 lg:mt-8;
+}

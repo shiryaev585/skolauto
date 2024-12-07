@@ -22,22 +22,24 @@ export default defineNuxtConfig({
         },
     },
     modules: [
-        '@nuxt/image',
-        '@nuxtjs/tailwindcss',
-        '@pinia/nuxt',
-        ['@nuxtjs/google-fonts',
-            {
-                families: {
-                    Lato: {
-                        wght: [300, 400],
-                    },
-                    Oswald: {
-                        wght: [300, 400, 500, 700],
-                    }
+      '@nuxt/image',
+      '@nuxtjs/tailwindcss',
+      '@pinia/nuxt',
+      ['@nuxtjs/google-fonts',
+          {
+              families: {
+                  Lato: {
+                      wght: [300, 400],
+                  },
+                  Oswald: {
+                      wght: [300, 400, 500, 700],
+                  }
 
-                }
-            }
-        ]],
+              }
+          }
+      ],
+      'nuxt-swiper',
+    ],
     runtimeConfig: {
         public: {
             requestUrl: process.env.REQUEST_URL,

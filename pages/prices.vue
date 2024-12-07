@@ -1,6 +1,6 @@
 <template>
     <div class="page">
-        <common-prices class="mt-16" :prices="prices" />
+        <common-prices class="section-top-offset" :prices="prices" />
     </div>
 </template>
 

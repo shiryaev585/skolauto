@@ -9,10 +9,10 @@
             </nuxt-link>
             <div class="flex">
                 <nav class="header__nav flex items-center">
-                    <nuxt-link to="/about" class="header__nav-link font-heading uppercase tracking-widest hover:opacity-50 transition-opacity duration-300">О нас</nuxt-link>
-                    <nuxt-link to="/prices" class="header__nav-link font-heading uppercase tracking-widest hover:opacity-50 transition-opacity duration-300">Цены</nuxt-link>
-                    <nuxt-link to="/posts" class="header__nav-link font-heading uppercase tracking-widest hover:opacity-50 transition-opacity duration-300">Блог</nuxt-link>
-                    <nuxt-link to="/contacts" class="header__nav-link font-heading uppercase tracking-widest hover:opacity-50 transition-opacity duration-300">Контакты</nuxt-link>
+                    <nuxt-link to="/about" class="header__nav-link font-heading uppercase tracking-widest link-hover">О нас</nuxt-link>
+                    <nuxt-link to="/prices" class="header__nav-link font-heading uppercase tracking-widest link-hover">Цены</nuxt-link>
+                    <nuxt-link to="/posts" class="header__nav-link font-heading uppercase tracking-widest link-hover">Блог</nuxt-link>
+                    <nuxt-link to="/contacts" class="header__nav-link font-heading uppercase tracking-widest link-hover">Контакты</nuxt-link>
                 </nav>
 
                 <a class="flex items-center ml-8 text-sm" href="tel:+79998887766">+7(999)888-77-66</a>

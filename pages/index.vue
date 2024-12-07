@@ -1,7 +1,8 @@
 <template>
     <div class="page mb-16">
         <index-intro />
-        <common-prices class="mt-16" :prices="prices" />
+        <index-posts-carousel class="section-top-offset" />
+        <common-prices class="section-top-offset" :prices="prices" />
     </div>
 </template>
 
