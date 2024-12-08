@@ -5,6 +5,7 @@ export const useGlobalStore = defineStore('global', {
         isBodyLocked: false,
         isPopup: false,
         showPreloader: false,
+        isMenu: false,
     }),
 
     actions: {
@@ -23,6 +24,11 @@ export const useGlobalStore = defineStore('global', {
 
         togglePreloader(payload) {
             this.showPreloader = payload;
-        }
+        },
+
+        toggleMenu(payload) {
+            this.isMenu = payload;
+            this.toggleBodyLocked();
+        },
     },
 });

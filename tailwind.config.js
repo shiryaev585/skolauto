@@ -10,12 +10,6 @@ export default {
         lg: '5rem',
         xl: '6rem',
       },
-      screens: {
-        xs: '768px',
-        sm: '1024px',
-        md: '1280px',
-        lg: '1440px',
-      }
     },
     extend: {
       fontFamily: {
