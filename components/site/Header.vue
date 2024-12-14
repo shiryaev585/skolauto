@@ -9,13 +9,24 @@
             </nuxt-link>
             <div class="hidden xl:flex">
                 <nav class="header__nav flex items-center">
-                    <nuxt-link to="/about" class="header__nav-link font-heading uppercase tracking-widest link-hover">О нас</nuxt-link>
-                    <nuxt-link to="/prices" class="header__nav-link font-heading uppercase tracking-widest link-hover">Цены</nuxt-link>
-                    <nuxt-link to="/posts" class="header__nav-link font-heading uppercase tracking-widest link-hover">Блог</nuxt-link>
-                    <nuxt-link to="/contacts" class="header__nav-link font-heading uppercase tracking-widest link-hover">Контакты</nuxt-link>
+                    <nuxt-link
+                        v-for="route in menuRoutes"
+                        :key="route.id"
+                        :to="route.path"
+                        class="header__nav-link font-heading uppercase tracking-widest link-hover"
+                    >
+                        {{ route.name }}
+                    </nuxt-link>
                 </nav>
 
-                <a class="flex items-center ml-8 text-sm" href="tel:+79998887766">+7(999)888-77-66</a>
+                <a
+                    class="flex items-center ml-8 text-sm link-hover"
+                    :href="contacts.phone.type + contacts.phone.value?.replace(/(\()|(\)|(-))/g, '')"
+                >
+                    {{ contacts.phone.value }}
+                </a>
+
+                <common-socials class="ml-8" />
 
                 <ui-btn class="ml-16" @click="globalStore.togglePopup(true)">Заказать звонок</ui-btn>
             </div>
