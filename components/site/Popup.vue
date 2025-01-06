@@ -4,7 +4,7 @@
         { 'opacity-100 z-20': isPopup, 'opacity-0 z-[-1]': ! isPopup }
         ]">
         <ui-close-btn @click="globalStore.togglePopup(false)" />
-        <div class="bg-white fixed bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 w-3/4 ">
+        <div class="bg-white fixed bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 w-3/4">
             <slot></slot>
         </div>
     </div>
