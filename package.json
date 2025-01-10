@@ -12,6 +12,7 @@
   "dependencies": {
     "@nuxtjs/google-fonts": "^3.2.0",
     "@pinia/nuxt": "^0.7.0",
+    "maska": "^2.1.11",
     "nuxt": "^3.13.2",
     "nuxt-swiper": "2.0.0",
     "pinia": "^2.2.6",

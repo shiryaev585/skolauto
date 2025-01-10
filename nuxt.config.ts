@@ -21,6 +21,9 @@ export default defineNuxtConfig({
             },
         },
     },
+    plugins: [
+        '~/plugins/maska.js',
+    ],
     modules: [
       '@nuxt/image',
       '@nuxtjs/tailwindcss',

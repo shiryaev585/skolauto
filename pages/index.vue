@@ -5,6 +5,7 @@
         <index-steps class="section-top-offset" :steps="steps" />
         <common-prices class="section-top-offset" :prices="prices" />
         <index-faq class="section-top-offset" :faq="faq" @toggle-answer="toggleAnswer" />
+        <common-form class="section-top-offset" title="Связаться с нами" />
         <index-posts-carousel class="section-top-offset" />
     </div>
 </template>
@@ -74,7 +75,7 @@ const faq = reactive([
 
 const toggleAnswer = (item) => {
     if (item.classHeight === 'max-h-0') {
-        item.classHeight = 'max-h-40'
+        item.classHeight = 'max-h-64 lg:max-h-40'
     } else {
         item.classHeight = 'max-h-0'
     }
