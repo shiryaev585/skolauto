@@ -1,5 +1,6 @@
 <template>
     <section class="container">
+        <site-preloader :show-preloader="showPreloader" />
         <h2 class="section-heading">{{ title }}</h2>
         <transition name="fade" mode="out-in">
             <form
@@ -29,7 +30,7 @@
                     />
                 </div>
 
-                <span class="inner-top-offset block ">Нажимая кнопку «{{ btnInner }}» Вы даёте своё согласие на обработку <nuxt-link class="underline link-hover" to="/privacy">персональных данных</nuxt-link></span>
+                <span class="inner-top-offset block ">Нажимая кнопку «{{ btnInner }}» Вы даёте своё согласие на обработку <nuxt-link class="underline link-hover" to="/privacy" @click="globalStore.togglePopup(false)">персональных данных</nuxt-link></span>
 
                 <button
                     class="inner-top-offset bg-slate-800 p-4 lg:p-6 shadow-lg text-2xl text-white block w-full lg:w-1/3 hover:opacity-80 transition-opacity duration-300 cursor-pointer"
@@ -56,6 +57,8 @@
 </template>
 
 <script setup>
+import { useGlobalStore } from '~/stores/global';
+
 defineProps({
     title: {
         type: String,
@@ -68,6 +71,7 @@ defineProps({
     }
 });
 
+const globalStore = useGlobalStore();
 const config = useRuntimeConfig();
 const form = reactive({});
 const showPreloader = ref(false);
