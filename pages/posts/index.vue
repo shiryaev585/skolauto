@@ -1,7 +1,7 @@
 <template>
     <div class="page">
         <div class="container section-top-offset text-xl">
-            <h1 class=" text-5xl">Блог</h1>
+            <h1 class="section-heading">Блог</h1>
             <span class="inner-top-offset mb-2 inline-block">В блоге рассмотрены актуальные вопросы ремонта автостекла:</span>
             <ul class="list-disc pl-7 text-xl">
                 <li>принцип ремонта;</li>

@@ -14,7 +14,7 @@
                 </svg>
                 <span>вернуться к постам</span>
             </nuxt-link>
-            <h1>{{ post?.title?.rendered }}</h1>
+            <h1 class="section-heading">{{ post?.title?.rendered }}</h1>
             <div v-html="post?.content?.rendered" class="inner-top-offset"></div>
         </div>
     </div>
@@ -36,10 +36,6 @@ const image = computed(() => {
 
 <style lang="scss">
 .post {
-    & h1 {
-        @apply text-5xl;
-    }
-
     & h4 {
         @apply mb-4 text-2xl;
     }

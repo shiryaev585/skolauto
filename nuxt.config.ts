@@ -42,7 +42,11 @@ export default defineNuxtConfig({
           }
       ],
       'nuxt-swiper',
+      'vue-yandex-maps/nuxt'
     ],
+    yandexMaps: {
+        apikey: process.env.YMAP_KEY,
+    },
     runtimeConfig: {
         public: {
             requestUrl: process.env.REQUEST_URL,

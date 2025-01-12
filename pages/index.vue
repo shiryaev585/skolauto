@@ -5,7 +5,7 @@
         <index-steps class="section-top-offset" :steps="steps" />
         <common-prices class="section-top-offset" :prices="prices" />
         <index-faq class="section-top-offset" :faq="faq" @toggle-answer="toggleAnswer" />
-        <common-form class="section-top-offset" title="Связаться с нами" />
+        <common-form class="section-top-offset" title="Связаться с нами" embedded />
         <index-posts-carousel class="section-top-offset" />
     </div>
 </template>

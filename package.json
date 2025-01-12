@@ -17,7 +17,8 @@
     "nuxt-swiper": "2.0.0",
     "pinia": "^2.2.6",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "vue-yandex-maps": "^2.1.6"
   },
   "devDependencies": {
     "@nuxt/image": "^1.8.1",

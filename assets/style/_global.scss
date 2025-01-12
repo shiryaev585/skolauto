@@ -35,7 +35,7 @@ $lg: 1440px;
 }
 
 .section-heading {
-    @apply font-light text-4xl tracking-widest uppercase leading-relaxed;
+    @apply font-light text-2xl lg:text-4xl tracking-widest uppercase leading-relaxed;
 }
 
 .link-hover {
@@ -58,4 +58,9 @@ $lg: 1440px;
 .fade-enter-from,
 .fade-leave-to {
     opacity: 0;
+}
+
+[class*='copyrights-promo'],
+[class*='copyrights'] {
+    display: none !important;
 }

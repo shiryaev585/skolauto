@@ -30,7 +30,9 @@
                     />
                 </div>
 
-                <span class="inner-top-offset block ">Нажимая кнопку «{{ btnInner }}» Вы даёте своё согласие на обработку <nuxt-link class="underline link-hover" to="/privacy" @click="globalStore.togglePopup(false)">персональных данных</nuxt-link></span>
+                <span v-if="embedded" class="inner-top-offset block">Нажимая кнопку «{{ btnInner }}» Вы даёте своё согласие на обработку <nuxt-link class="underline link-hover" to="/privacy">персональных данных</nuxt-link></span>
+
+                <span v-else class="inner-top-offset block">Нажимая кнопку «{{ btnInner }}» Вы даёте своё согласие на обработку <nuxt-link class="underline link-hover" to="/privacy" @click="globalStore.togglePopup(false)">персональных данных</nuxt-link></span>
 
                 <button
                     class="inner-top-offset bg-slate-800 p-4 lg:p-6 shadow-lg text-2xl text-white block w-full lg:w-1/3 hover:opacity-80 transition-opacity duration-300 cursor-pointer"
@@ -68,6 +70,11 @@ defineProps({
     btnInner: {
         type: String,
         default: 'Связаться с нами'
+    },
+
+    embedded: {
+        type: Boolean,
+        default: false
     }
 });
 
@@ -81,9 +88,10 @@ const onSubmit = async () => {
     const formData = new FormData();
     formData.append('name', form?.name);
     formData.append('phone', form?.phone);
-    showPreloader.value = true;
 
     if (form?.name && form?.phone) {
+        showPreloader.value = true;
+
         try {
             const res = await fetch(config.public.requestUrl, {
                 method: 'POST',
