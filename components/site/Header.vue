@@ -54,6 +54,7 @@
 </template>
 
 <script setup>
+import { menuRoutes } from '~/utils/menuRoutes';
 const isScrolled = ref(false);
 import { useGlobalStore } from '~/stores/global';
 

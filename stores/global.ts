@@ -17,16 +17,16 @@ export const useGlobalStore = defineStore('global', {
                 : document.body.classList.remove('_locked');
         },
 
-        togglePopup(payload) {
+        togglePopup(payload: boolean) {
             this.isPopup = payload;
             this.toggleBodyLocked();
         },
 
-        togglePreloader(payload) {
+        togglePreloader(payload: boolean) {
             this.showPreloader = payload;
         },
 
-        toggleMenu(payload) {
+        toggleMenu(payload: boolean) {
             this.isMenu = payload;
             this.toggleBodyLocked();
         },

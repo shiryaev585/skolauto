@@ -10,9 +10,9 @@
                 <span class="text-gray-500 text-lg">{{ price.label }}</span>
                 <span class="text-xl">{{ price.value }}</span>
             </div>
-            <span class="text-sm text-gray-400 mt-8 inline-block">Ремонт скола зависит от вида, размера и состояния скола. Ремонт трещины 100-120&nbsp;руб./см, зависит от длины и состояния трещины, мин. ремонт 2000&nbsp;₽</span>
-            <span class="text-sm text-gray-400 mt-1 block"><b>Скидка -25%</b> на второй скол.</span>
-            <span class="text-sm text-gray-400 mt-1 block"><b>Скидка -10%</b> автоледи и пенсионерам.</span>
+            <span class="text-md text-gray-400 mt-8 inline-block">На&nbsp;грузовые машины и&nbsp;автобусы коэф. х1, 5&nbsp;на повреждения выше&nbsp;2м.</span>
+            <!-- <span class="text-sm text-gray-400 mt-1 block"><b>Скидка -25%</b> на второй скол.</span>
+            <span class="text-sm text-gray-400 mt-1 block"><b>Скидка -10%</b> автоледи и пенсионерам.</span> -->
         </div>
     </section>
 </template>

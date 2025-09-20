@@ -11,7 +11,7 @@
             </svg>
         </a>
         <a
-            href="https://t.me/glassrepair_kh"
+            href="https://t.me/glassnewtech"
             aria-label="свяжитесь с нами в соц сетях"
             target="_blank"
             class="w-6 h-6 link-hover"

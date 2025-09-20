@@ -18,7 +18,7 @@
                             v-for="(answer, i) in item.answers"
                             :key="i"
                             v-html="answer"
-                            class="text-md lg:text-lg"
+                            class="text-lg"
                         ></p>
                     </div>
                 </div>
