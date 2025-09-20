@@ -22,7 +22,7 @@ export default defineNuxtConfig({
         },
     },
     plugins: [
-        '~/plugins/maska.js',
+        '~/plugins/maska.ts',
     ],
     modules: [
       '@nuxt/image',

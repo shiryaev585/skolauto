@@ -10,9 +10,7 @@
         />
         <div class="absolute top-0 left-0 w-full h-full bg-black/50"></div>
         <div class="absolute bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 z-1 container">
-            <h1 class="heading text-white text-3xl md:text-5xl">Сохранить автостекло и избежать замены</h1>
-            <h2 class="font-main heading text-white text-2xl md:text-3xl mt-32">Ремонт скола от 5000&nbsp;₽</h2>
-            <h2 class="font-main heading text-white text-2xl md:text-3xl mt-4">Ремонт трещины от 2000&nbsp;₽</h2>
+            <h1 class="heading text-white text-3xl md:text-5xl">Профи ремонт автостёкол</h1>
         </div>
     </section>
 </template>
