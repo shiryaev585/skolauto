@@ -62,10 +62,16 @@ import image_3 from '~/assets/images/index/3.webp';
 import image_4 from '~/assets/images/index/4.webp';
 import image_5 from '~/assets/images/index/5.webp';
 import image_6 from '~/assets/images/index/6.webp';
+import image_7 from '~/assets/images/index/7.webp';
+import image_8 from '~/assets/images/index/8.webp';
+import image_9 from '~/assets/images/index/9.webp';
+import image_10 from '~/assets/images/index/10.webp';
+import image_11 from '~/assets/images/index/11.webp';
+import image_12 from '~/assets/images/index/12.webp';
 
 const globalStore = useGlobalStore();
 
-const images = [image_1, image_2, image_3, image_4, image_5, image_6];
+const images = [image_1, image_2, image_3, image_4, image_5, image_6, image_7, image_8, image_9, image_10, image_11, image_12];
 
 const activeImage = ref('');
 

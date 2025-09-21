@@ -5,11 +5,11 @@ interface Route {
 }
 
 export const menuRoutes: Route[] = [
-    // {
-    //     id: crypto.randomUUID(),
-    //     name: 'О нас',
-    //     path: '/about'
-    // },
+    {
+        id: crypto.randomUUID(),
+        name: 'Обучение',
+        path: '/study'
+    },
     {
         id: crypto.randomUUID(),
         name: 'Цены',
