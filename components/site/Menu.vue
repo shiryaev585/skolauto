@@ -7,7 +7,13 @@
                 v-for="route in menuRoutes"
                 :key="route.id"
             >
-                <nuxt-link :to="route.path" class="font-heading uppercase tracking-widest text-2xl sm:text-4xl">{{ route.name }}</nuxt-link>
+                <nuxt-link
+                    :to="route.path"
+                    class="font-heading uppercase tracking-widest text-2xl sm:text-4xl"
+                    @click="globalStore.toggleMenu(false)"
+                >
+                    {{ route.name }}
+                </nuxt-link>
             </li>
         </ul>
         <common-socials class="container pb-8" />

@@ -104,8 +104,17 @@
     </div>
 </template>
 
-<script setup>
-const faq = reactive([
+<script lang="ts" setup>
+import type { MetaObject } from 'nuxt/schema';
+
+interface Faq {
+    id: number;
+    question: string;
+    answers: string[];
+    classHeight: string;
+};
+
+const faq = reactive<Faq[]>([
     {
         id: 1,
         question: 'Что сделать до ремонта?',
@@ -126,7 +135,21 @@ const faq = reactive([
     }
 ]);
 
-const toggleAnswer = (item) => {
+const head: MetaObject = {
+    title: 'ProfiGlass | Ремонт автостёкл в Орле',
+    meta: [
+        { name: 'description', content: 'Профессиональный ремонт трещин и сколов на вашем автомобиле в Орле по цене от 500 руб. Устранение повреждений на лобовых стеклах автомобиля по низким ценам. Записаться на ремонт или обучение ремонту автостекла можно на нашем сайте или по телефону +7(910)303-14-55' },
+        { property: 'og:title', content: 'ProfiGlass | Ремонт автостёкл в Орле' },
+        { property: 'og:description', content: 'Профессиональный ремонт трещин и сколов на вашем автомобиле в Орле по цене от 500 руб. Устранение повреждений на лобовых стеклах автомобиля по низким ценам. Записаться на ремонт или обучение ремонту автостекла можно на нашем сайте или по телефону +7(910)303-14-55' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://profiglass.com.ru' },
+        { property: 'og:locale', content: 'ru_RU' },
+    ],
+};
+
+useHead(head);
+
+const toggleAnswer = (item: Faq) => {
     if (item.classHeight === 'max-h-0') {
         item.classHeight = 'max-h-64 lg:max-h-40';
     } else {
