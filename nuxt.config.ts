@@ -120,7 +120,7 @@ export default defineNuxtConfig({
             },
       ],
       'nuxt-swiper',
-      'vue-yandex-maps/nuxt'
+      'vue-yandex-maps/nuxt',
     ],
     yandexMaps: {
         apikey: process.env.YMAP_KEY,
