@@ -1,3 +1,5 @@
+import { generateUUID } from './generateUUID';
+
 interface Route {
     id: string;
     name: string;
@@ -6,22 +8,22 @@ interface Route {
 
 export const menuRoutes: Route[] = [
     {
-        id: crypto.randomUUID(),
+        id: generateUUID(),
         name: 'Обучение',
         path: '/study'
     },
     {
-        id: crypto.randomUUID(),
+        id: generateUUID(),
         name: 'Цены',
         path: '/prices'
     },
     // {
-    //     id: crypto.randomUUID(),
+    //     id: generateUUID(),
     //     name: 'Блог',
     //     path: '/posts'
     // },
     {
-        id: crypto.randomUUID(),
+        id: generateUUID(),
         name: 'Контакты',
         path: '/contacts'
     }

@@ -1,3 +1,5 @@
+import { generateUUID } from './generateUUID';
+
 export interface IStep {
   id: string;
   number: string;
@@ -6,27 +8,27 @@ export interface IStep {
 
 export const steps: IStep[] = [
   {
-    id: crypto.randomUUID(),
+    id: generateUUID(),
     number: 'I',
     step: 'Очистка повреждения',
   },
   {
-    id: crypto.randomUUID(),
+    id: generateUUID(),
     number: 'II',
     step: 'Откачка воздуха',
   },
   {
-    id: crypto.randomUUID(),
+    id: generateUUID(),
     number: 'III',
     step: 'Заливка полимера',
   },
   {
-    id: crypto.randomUUID(),
+    id: generateUUID(),
     number: 'IV',
     step: 'Облучение УФ-лампой',
   },
   {
-    id: crypto.randomUUID(),
+    id: generateUUID(),
     number: 'V',
     step: 'Очистка и полировка',
   },

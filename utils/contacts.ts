@@ -24,5 +24,5 @@ export const contacts: Contacts = {
         value: 'г. Орёл, р-н Заводской, ул. Колхозная, 11',
         href: 'https://yandex.ru/maps/10/orel/house/kolkhoznaya_ulitsa_11/Z08YdgNpT0QAQFtofXV0cHljZA==/?ll=36.049617%2C52.951500&z=17.01',
     },
-    coords: [36.049617, 52.951500],
+    coords: [36.050102, 52.951504],
 };
