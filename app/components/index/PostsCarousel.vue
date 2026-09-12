@@ -53,5 +53,6 @@
 </template>
 
 <script setup>
-const { data: posts } = await useApi('/posts/', { query: { _embed: 1 } });
+// const { data: posts } = await useApi('/posts/', { query: { _embed: 1 } });
+const posts = ref([]);
 </script>

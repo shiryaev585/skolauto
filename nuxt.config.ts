@@ -128,7 +128,6 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             requestUrl: process.env.REQUEST_URL,
-            apiUrl: process.env.API_URL,
         },
     },
 });
