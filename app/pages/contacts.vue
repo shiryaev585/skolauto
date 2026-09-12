@@ -22,7 +22,7 @@
 
                     <yandex-map-default-marker
                         position="top left-center"
-                        :settings="{ coordinates: contacts.coords, title: 'Autoskol', color: '#1e293b' }"
+                        :settings="{ coordinates: contacts.coords, title: 'Profiglass' }"
                     />
                 </yandex-map>
             </client-only>
