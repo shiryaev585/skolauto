@@ -21,6 +21,10 @@ jobs:
 
       - name: Generate static site
         run: bun run generate
+        env:
+          REQUEST_URL: ${{ secrets.REQUEST_URL }}
+          YMAP_KEY: ${{ secrets.YMAP_KEY }}
+          YMETRIKA_ID: ${{ secrets.YMETRIKA_ID }}
 
       - name: Deploy via rsync over SSH
         uses: burnett01/rsync-deployments@7.0.1
