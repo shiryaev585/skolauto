@@ -128,6 +128,7 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             requestUrl: process.env.REQUEST_URL,
+            ymetrikaId: process.env.YMETRIKA_ID,
         },
     },
 });
