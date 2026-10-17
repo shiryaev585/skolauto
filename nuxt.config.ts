@@ -118,9 +118,10 @@ export default defineNuxtConfig({
                     },
                 },
             },
-      ],
-      'nuxt-swiper',
-      'vue-yandex-maps/nuxt',
+        ],
+        'nuxt-swiper',
+        'vue-yandex-maps/nuxt',
+        'nuxt-gtag'
     ],
     yandexMaps: {
         apikey: process.env.YMAP_KEY,
@@ -128,7 +129,10 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             requestUrl: process.env.REQUEST_URL,
-            ymetrikaId: process.env.YMETRIKA_ID,
         },
+    },
+    gtag: {
+        id: process.env.NUXT_PUBLIC_GTAG_ID,
+        enabled: !!process.env.NUXT_PUBLIC_GTAG_ID,
     },
 });
