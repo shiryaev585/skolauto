@@ -4,7 +4,6 @@ html, body {
   
 body {
     --header-height: 5rem;
-    --footer-height: 4.5rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: $font-main;
@@ -12,7 +11,6 @@ body {
 
     @include sm-down {
         --header-height: 3.5rem;
-        --footer-height: 3rem;
     }
 
     &._locked {
@@ -23,7 +21,6 @@ body {
 
 .page {
     padding-top: var(--header-height);
-    min-height: calc(100vh - var(--footer-height));
 }
 
 h1, h2, h3, h4, h5 {

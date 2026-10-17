@@ -27,7 +27,3 @@
         </a>
     </div>
 </template>
-
-<script setup>
-const whatsupPhone = computed(() => contacts.phone.value?.replace(/\D/g, ''));
-</script>
