@@ -4,7 +4,7 @@ const addressHref = computed(() => contacts.address.href);
 </script>
 
 <template>
-    <section class="intro relative text-white" aria-labelledby="intro-heading">
+    <section class="intro relative grid text-white" aria-labelledby="intro-heading">
         <nuxt-img
             class="intro__background absolute inset-0 w-full h-full object-cover object-top"
             src="/images/index/intro-bg.webp"
@@ -13,7 +13,7 @@ const addressHref = computed(() => contacts.address.href);
             fetchpriority="high"
         />
 
-        <div class="intro__content container relative z-[1] flex flex-col">
+        <div class="intro__content container relative z-[1] w-full flex flex-col justify-between">
             <div class="intro__contacts">
                 <p class="intro__brand uppercase">Профи Гласс</p>
                 <address class="intro__address not-italic flex flex-col items-start">
@@ -67,7 +67,7 @@ const addressHref = computed(() => contacts.address.href);
     font-family: $font-main;
 
     &__content {
-        padding-top: 4rem;
+        padding-top: 2rem;
         padding-bottom: 4rem;
     }
 
@@ -116,7 +116,7 @@ const addressHref = computed(() => contacts.address.href);
 
     &__benefits {
         gap: .75rem;
-        margin-top: 2.5rem;
+        margin-top: 1.5rem;
         font-size: clamp(.9375rem, 4.5vw, 1.25rem);
         line-height: 1.6;
     }
@@ -130,7 +130,7 @@ const addressHref = computed(() => contacts.address.href);
     }
 
     &__guarantee {
-        margin-top: 4.5rem;
+        margin-top: 2.5rem;
         color: var(--intro-accent);
         font-size: clamp(1rem, 4.4vw, 1.25rem);
         line-height: 1.8;
@@ -168,6 +168,7 @@ const addressHref = computed(() => contacts.address.href);
 
         &__guarantee {
             font-size: 1.5rem;
+            margin-top: 4.5rem;
         }
     }
 }
