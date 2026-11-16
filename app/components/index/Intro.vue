@@ -61,7 +61,7 @@ const addressHref = computed(() => contacts.address.href);
 
 <style scoped lang="scss">
 .intro {
-    --intro-accent: #fd0015;
+    --intro-accent: #ff3547;
     min-height: calc(100svh - var(--header-height));
     background: #061c43;
     font-family: $font-main;
