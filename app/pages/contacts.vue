@@ -1,37 +1,3 @@
-<template>
-    <div class="page mb-16">
-        <h2 class="section-heading container section-top-offset">Контакты</h2>
-
-        <common-contacts-info class="section-top-offset" />
-
-        <div class="map container section-top-offset">
-            <client-only>
-                <yandex-map
-                    :settings="{
-                        location: {
-                            center: contacts.coords,
-                            zoom: 15,
-                        },
-                    }"
-                >
-                    <yandex-map-default-scheme-layer />
-                    <yandex-map-default-features-layer />
-                    <yandex-map-controls :settings="{ position: 'right' }">
-                        <yandex-map-zoom-control />
-                    </yandex-map-controls>
-
-                    <yandex-map-default-marker
-                        position="top left-center"
-                        :settings="{ coordinates: contacts.coords, title: 'Profiglass' }"
-                    />
-                </yandex-map>
-            </client-only>
-        </div>
-
-        <common-form class="section-top-offset" title="Связаться с нами" embedded />
-    </div>
-</template>
-
 <script lang="ts" setup>
 import type { MetaObject } from 'nuxt/schema';
 import {
@@ -58,6 +24,43 @@ const head: MetaObject = {
 
 useHead(head);
 </script>
+
+<template>
+    <div class="page mb-16">
+        <h1 class="section-heading container section-top-offset">Контакты</h1>
+
+        <common-contacts-info class="section-top-offset" visit-info-id="contacts-visit-info" />
+
+        <div class="map container section-top-offset">
+            <client-only>
+                <yandex-map
+                    tag="section"
+                    :aria-label="`Карта проезда — ${contacts.address.value}`"
+                    aria-describedby="contacts-visit-info"
+                    :settings="{
+                        location: {
+                            center: contacts.coords,
+                            zoom: 15,
+                        },
+                    }"
+                >
+                    <yandex-map-default-scheme-layer />
+                    <yandex-map-default-features-layer />
+                    <yandex-map-controls :settings="{ position: 'right' }">
+                        <yandex-map-zoom-control />
+                    </yandex-map-controls>
+
+                    <yandex-map-default-marker
+                        position="top left-center"
+                        :settings="{ coordinates: contacts.coords, title: 'Profiglass' }"
+                    />
+                </yandex-map>
+            </client-only>
+        </div>
+
+        <common-form class="section-top-offset" title="Связаться с нами" embedded />
+    </div>
+</template>
 
 <style lang="scss" scoped>
 .map {
