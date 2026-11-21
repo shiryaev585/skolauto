@@ -1,22 +1,22 @@
-html, body {
-    scrollbar-gutter: stable;
-}
-  
-body {
+html {
     --header-height: 5rem;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: $font-main;
-    font-weight: 400;
+    scrollbar-gutter: stable;
+    scroll-padding-top: calc(var(--header-height) + .5rem);
 
     @include sm-down {
         --header-height: 3.5rem;
     }
+}
 
-    &._locked {
-        width: 100%;
-        overflow: hidden;
-    }
+html:has(dialog[open], .burger[aria-expanded="true"]) {
+    overflow: hidden;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: $font-main;
+    font-weight: 400;
 }
 
 .page {
@@ -27,4 +27,31 @@ h1, h2, h3, h4, h5 {
     font-family: $font-heading;
     font-weight: 500;
 }
-  
+
+:focus-visible {
+    outline: 1px solid #1d4ed8;
+}
+
+.skip-link {
+    position: fixed;
+    z-index: 30;
+    top: .5rem;
+    left: .5rem;
+    transform: translateY(calc(-100% - 1rem));
+    padding: .65rem 1rem;
+    background: white;
+    color: #0f172a;
+}
+
+.skip-link:focus {
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

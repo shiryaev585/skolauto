@@ -2,12 +2,13 @@
     <div class="flex items-center gap-4">
         <a
             href="https://s.imoim.net/LhuVIz"
-            aria-label="свяжитесь с нами в соц сетях"
+            aria-label="Связаться в imo (откроется в новой вкладке)"
             target="_blank"
+            rel="noopener noreferrer"
             title="Связаться в imo"
             class="w-6 h-6 link-hover"
         >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000000">
+            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#000000">
                 <g fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" color="currentColor">
                     <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12c0 1.821.487 3.53 1.338 5L2 22l5-1.338A9.96 9.96 0 0 0 12 22"/>
                     <path d="M7.009 9H7m.001 2v4m1.912 0v-2.75c0-.69.535-1.25 1.196-1.25s1.195.56 1.195 1.25m0 0V15m0-2.75c0-.69.536-1.25 1.196-1.25s1.196.56 1.196 1.25V15m1.913-2.75v1.5c0 .69.535 1.25 1.195 1.25S18 14.44 18 13.75v-1.5c0-.69-.535-1.25-1.196-1.25s-1.195.56-1.195 1.25"/>
@@ -16,12 +17,13 @@
         </a>
         <a
             href="https://t.me/glassnewtech"
-            aria-label="свяжитесь с нами в соц сетях"
+            aria-label="Связаться в Telegram (откроется в новой вкладке)"
             target="_blank"
-            title="Связаться в telegram"
+            rel="noopener noreferrer"
+            title="Связаться в Telegram"
             class="w-6 h-6 link-hover"
         >
-            <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 24 24" class="w-full h-full">
+            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 24 24" class="w-full h-full">
                 <path fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.5 16L9 19.5L7 13l-5.5-2l21-8l-4 18l-7.5-7l4-3"/>
             </svg>
         </a>

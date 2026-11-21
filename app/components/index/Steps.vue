@@ -1,20 +1,22 @@
 <template>
-    <section class="container">
-        <h2 class="section-heading text-center lg:text-start">Шаги</h2>
-        <div class="flex justify-between inner-top-offset lg:gap-8 flex-wrap lg:flex-nowrap">
-            <div
+    <section class="container" aria-labelledby="steps-heading">
+        <h2 id="steps-heading" class="section-heading text-center lg:text-start">Этапы ремонта</h2>
+        <ol role="list" class="flex justify-between inner-top-offset lg:gap-8 flex-wrap lg:flex-nowrap">
+            <li
                 v-for="(step, i) in steps"
                 :key="step.id"
                 class="relative w-1/2"
             >
                 <div :class="[
-                    'shadow-2xl flex flex-col items-center justify-center bg-slate-500 w-32 h-32 text-center rounded-full p-4 m-auto',
+                    'shadow-2xl flex flex-col items-center justify-center bg-slate-600 w-32 max-w-full min-h-32 text-center rounded-full p-4 m-auto',
                     { 'mt-28': i % 2 !== 0 }
                 ]">
-                    <span class="text-white text-sm">{{ step.number }}.&nbsp;{{ step.step }}</span>
+                    <span class="text-white text-sm"><span aria-hidden="true">{{ step.number }}.&nbsp;</span>{{ step.step }}</span>
                 </div>
                 <svg
                     v-if="i !== steps.length - 1"
+                    aria-hidden="true"
+                    focusable="false"
                     :class="['absolute right-0 w-24 h-24', { 'bottom-[-7rem] lg:bottom-0 left-0 lg:left-auto lg:top-0 lg:scale-x-100 scale-x-[-1] lg:scale-y-[-1]': i % 2 !== 0 }]"
                     width="60"
                     height="55"
@@ -26,8 +28,8 @@
                     <path d="M4.64764 11.4816L6.48509 10.692C6.74817 11.3056 7.01655 11.9068 7.2874 12.4957L5.4704 13.3325C5.19332 12.7293 4.91784 12.1117 4.64764 11.4816Z" fill="#1E293B"/>
                     <path d="M50.7984 35.4215C51.0857 35.0791 51.5787 34.9614 51.9996 35.1645L58.6358 38.3793C58.9472 38.5309 59.1588 38.8325 59.1947 39.1772C59.2297 39.5212 59.084 39.8597 58.8101 40.0711L51.8358 45.4455C51.3983 45.7833 50.7708 45.7019 50.4336 45.2637C50.0951 44.8255 50.1741 44.1961 50.6155 43.8615L56.3083 39.4744L51.1279 36.9642C50.6305 36.7231 50.4234 36.1251 50.6639 35.6285C50.7013 35.5528 50.7463 35.4836 50.7984 35.4215Z" fill="#1E293B"/>
                 </svg>
-            </div>
-        </div>
+            </li>
+        </ol>
     </section>
 </template>
 

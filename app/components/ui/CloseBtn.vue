@@ -1,13 +1,11 @@
 <template>
     <button
-        class="close-btn bg-slate-50 w-12 h-12 absolute top-8 right-8 hover:scale-110 transition-transform duration-300 "
-        @click="$emit('close')"
+        type="button"
+        aria-label="Закрыть окно"
+        class="close-btn bg-slate-50 w-11 h-11 absolute z-[2] top-2 right-2 hover:bg-slate-200"
     >
     </button>
 </template>
-
-<script>
-</script>
 
 <style lang="scss" scoped>
 .close-btn {
@@ -17,8 +15,8 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        background-color: #b4b4b4;
-        height: 1px;
+        background-color: currentColor;
+        height: 2px;
         width: 40%;
     }
 

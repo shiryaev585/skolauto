@@ -3,14 +3,15 @@
         <div class="section-top-offset flex flex-col gap-20">
             <h1 class="container section-heading text-center">Программа обучения</h1>
 
-            <div class="container flex flex-col md:block">
-                <h2 class="font-thin text-2xl mb-4">Теоретическая часть</h2>
+            <section class="container flex flex-col md:block" aria-labelledby="study-theory-heading">
+                <h2 id="study-theory-heading" class="font-thin text-2xl mb-4">Теоретическая часть</h2>
 
                 <div class="flex flex-col md:block">
                     <nuxt-img
                         class="float-right ml-3 mb-3 xs:h-[18rem] md:h-[26rem] w-auto"
                         src="/images/study/1.webp"
                         alt="авто"
+                        aria-hidden="true"
                     />
                     <ol class="list-decimal list-inside text-md flex flex-col gap-4">
                         <li>
@@ -72,14 +73,14 @@
                         </li>
                     </ol>
                 </div>
-            </div>
+            </section>
 
-            <div class="container flex flex-col gap-4">
-                <h2 class="font-thin text-2xl mb-4">По&nbsp;итогу обучения услуге ремонта автостекол</h2>
+            <section class="container flex flex-col gap-4" aria-labelledby="study-outcomes-heading">
+                <h2 id="study-outcomes-heading" class="font-thin text-2xl mb-4">По&nbsp;итогу обучения услуге ремонта автостекол</h2>
 
-                <div class="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-16">
-                    <div class="flex flex-col flex-1 items-center gap-4 bg-slate-200 shadow-2xl rounded-2xl p-8 border text-center w-full">
-                        <svg viewBox="0 0 100.354 100.352" class="w-20">
+                <ul role="list" class="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-16">
+                    <li class="flex flex-col flex-1 items-center gap-4 bg-slate-200 shadow-2xl rounded-2xl p-8 border text-center w-full">
+                        <svg viewBox="0 0 100.354 100.352" class="w-20" aria-hidden="true">
                             <g>
                                 <path d="M31.276,52.042c9.435,0,17.111-7.676,17.111-17.111S40.711,17.82,31.276,17.82s-17.111,7.676-17.111,17.111
                                     S21.841,52.042,31.276,52.042z M31.276,20.82c7.781,0,14.111,6.33,14.111,14.111c0,7.781-6.33,14.111-14.111,14.111
@@ -101,14 +102,14 @@
                                     c-0.788,0.253-1.223,1.098-0.969,1.887C66.006,37.793,68.245,39.424,70.798,39.424z"/>
                             </g>
                         </svg>
-                        <div class="flex flex-col">
+                        <p class="flex flex-col">
                             <span class="text-lg">Каждый клиент</span>
                             <span class="text-lg">постоянный</span>
-                        </div>
-                    </div>
+                        </p>
+                    </li>
 
-                    <div class="flex flex-col flex-1 items-center gap-4 bg-slate-200 shadow-2xl rounded-2xl p-8 border text-center w-full">
-                        <svg viewBox="0 0 100.353 100.352" class="w-20">
+                    <li class="flex flex-col flex-1 items-center gap-4 bg-slate-200 shadow-2xl rounded-2xl p-8 border text-center w-full">
+                        <svg viewBox="0 0 100.353 100.352" class="w-20" aria-hidden="true">
                             <g>
                                 <path d="M41.76,45.383c-7.691,0-13.949,6.258-13.949,13.949s6.257,13.948,13.949,13.948s13.949-6.257,13.949-13.948
                                     S49.451,45.383,41.76,45.383z M41.76,70.281c-6.037,0-10.949-4.911-10.949-10.948s4.912-10.949,10.949-10.949
@@ -125,31 +126,31 @@
                                     v-5.919h70.418V59.189z"/>
                             </g>
                         </svg>
-                        <div class="flex flex-col">
+                        <p class="flex flex-col">
                             <span class="text-lg">Каждый прайс</span>
                             <span class="text-lg">высший</span>
-                        </div>
-                    </div>
+                        </p>
+                    </li>
 
-                    <div class="flex flex-col flex-1 items-center gap-4 bg-slate-200 shadow-2xl rounded-2xl p-8 border text-center w-full">
-                        <svg viewBox="0 0 101 101" class="w-20">
+                    <li class="flex flex-col flex-1 items-center gap-4 bg-slate-200 shadow-2xl rounded-2xl p-8 border text-center w-full">
+                        <svg viewBox="0 0 101 101" class="w-20" aria-hidden="true">
                             <path d="M97.8,57.62c-2.64-10.44-5.19-11.44-13.64-13.29L82.83,44c-5.51-1.23-15.42-8.66-18.68-11.11A19.88,19.88,0,0,0,52.28,29H35.57c-4.27,0-5.25.55-6.6,1.91l-.16.18L23.68,38.2c-.68.69-1.25,1.38-1.76,2-1.25,1.52-2.08,2.53-3.61,2.82l-8.09,1C6.38,44.75,4,47,4,50V64.5A1.5,1.5,0,0,0,5.5,66h7.59a9,9,0,0,0,17.54,0H65.09a9,9,0,0,0,17.54,0h8.66a6.73,6.73,0,0,0,6.51-8.38ZM24.24,42.1c.51-.62,1-1.26,1.65-1.87L26,40l5.13-7.11c.65-.65,1.08-.94,4.39-.94h16.7a16.86,16.86,0,0,1,10.07,3.33c4.34,3.26,8,5.79,11.14,7.67h-50ZM21.87,70a6,6,0,1,1,6-6A6,6,0,0,1,21.87,70Zm52,0a6,6,0,1,1,6-6A6,6,0,0,1,73.87,70Zm20.35-8.43A3.69,3.69,0,0,1,91.29,63H82.8a9,9,0,0,0-17.88,0H30.8a9,9,0,0,0-17.88,0H7V50c0-2.11,2.89-2.82,3.69-3l7.88-1H79.24a18.06,18.06,0,0,0,2.93,1l1.35.3c7.68,1.68,9.07,2,11.37,11.09A3.72,3.72,0,0,1,94.22,61.57Z"/>
                         </svg>
-                        <div class="flex flex-col">
+                        <p class="flex flex-col">
                             <span class="text-lg">Каждый автомобиль</span>
                             <span class="text-lg">от&nbsp;business до&nbsp;luxury</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </p>
+                    </li>
+                </ul>
+            </section>
 
             <div class="relative flex flex-col gap-10 py-20">
                 <div class="absolute top-0 left-0 w-full h-full bg-[url('/images/study/2.webp')] bg-center bg-no-repeat bg-cover bg-fixed brightness-50"></div>
                 <div class="container z-[1] flex flex-col gap-6 text-white">
                     <div class="flex flex-col gap-3">
                         <div class="flex flex-col">
-                            <i class="text-md font-bold">Для студий детейлинга, автосервисов и&nbsp;частных мастеров.</i>
-                            <span class="text-md">Услуга по&nbsp;ремонту сколов и&nbsp;трещин автостекол, как новая маржинальная услуга, с&nbsp;целью:</span>
+                            <i class="text-md font-bold" role="heading" aria-level="2">Для студий детейлинга, автосервисов и&nbsp;частных мастеров.</i>
+                            <p class="text-md">Услуга по&nbsp;ремонту сколов и&nbsp;трещин автостекол, как новая маржинальная услуга, с&nbsp;целью:</p>
                         </div>
                         <ul class="list-disc pl-7 text-sm">
                             <li>расширения предлагаемых услуг;</li>
@@ -161,8 +162,8 @@
 
                     <div class="flex flex-col gap-3">
                         <div class="flex flex-col">
-                            <i class="text-md font-bold">Обучение ремонту автостекол включает&nbsp;&mdash;</i>
-                            <span class="text-md">ремонт повреждений различной формы, размеров, состояний и&nbsp;места расположения:</span>
+                            <i class="text-md font-bold" role="heading" aria-level="2">Обучение ремонту автостекол включает&nbsp;&mdash;</i>
+                            <p class="text-md">ремонт повреждений различной формы, размеров, состояний и&nbsp;места расположения:</p>
                         </div>
                         <ul class="list-disc pl-7 text-sm">
                             <li>простых и&nbsp;сложных сколов, коротких и&nbsp;длинных трещин, новых и&nbsp;старых, чистых и&nbsp;грязных;</li>
@@ -173,7 +174,7 @@
 
                     <div class="flex flex-col gap-3">
                         <div class="flex flex-col">
-                            <i class="text-md font-bold">Полученные знания позволят:</i>
+                            <i class="text-md font-bold" role="heading" aria-level="2">Полученные знания позволят:</i>
                         </div>
                         <ul class="list-disc pl-7 text-sm">
                             <li>делать ремонты с&nbsp;превышением норм стандарта ЕС&nbsp;BS&nbsp;AU242b: 2022 и&nbsp;стандарта США ROLAGS 002-2022;</li>
@@ -186,8 +187,8 @@
                 </div>
             </div>
 
-            <div class="container flex flex-col gap-3">
-                <h2 class="font-thin text-2xl">Мифы ремонта автостёкол и их развеивание</h2>
+            <section class="container flex flex-col gap-3" aria-labelledby="study-myths-heading">
+                <h2 id="study-myths-heading" class="font-thin text-2xl">Мифы ремонта автостёкол и их развеивание</h2>
 
                 <ul class="list-disc pl-7 text-md">
                     <li>
@@ -210,15 +211,15 @@
                     </li>
                 </ul>
 
-                <span class="text-md">Вскрываются объективные причины и&nbsp;дальнейшей живучести данных мифов.</span>
-            </div>
+                <p class="text-md">Вскрываются объективные причины и&nbsp;дальнейшей живучести данных мифов.</p>
+            </section>
 
-            <div class="container flex flex-col gap-3">
-                <h2 class="font-thin text-2xl">Преимущества обучения</h2>
+            <section class="container flex flex-col gap-3" aria-labelledby="study-benefits-heading">
+                <h2 id="study-benefits-heading" class="font-thin text-2xl">Преимущества обучения</h2>
 
                 <div class="flex flex-col gap-3">
                     <div class="flex flex-col">
-                        <i class="text-md font-bold">Только в&nbsp;этом обучении (и&nbsp;нигде больше) научитесь:</i>
+                        <i class="text-md font-bold" role="heading" aria-level="3">Только в&nbsp;этом обучении (и&nbsp;нигде больше) научитесь:</i>
                     </div>
                     <ul class="list-disc pl-7 text-md">
                         <li>делать ремонты с&nbsp;прочностью и&nbsp;прозрачностью на&nbsp;20% больше любых других профессиональных ремонтов!</li>
@@ -228,35 +229,35 @@
 
                 <div class="flex flex-col gap-3">
                     <div class="flex flex-col">
-                        <i class="text-md font-bold">Только в&nbsp;технологии 2020-х:</i>
-                        <i class="text-md font-bold">самые ПРОЗРАЧНЫЕ сколы и&nbsp;трещины, за&nbsp;счет:</i>
+                        <i class="text-md font-bold" role="heading" aria-level="3">Только в&nbsp;технологии 2020-х:</i>
+                        <i class="text-md font-bold" role="heading" aria-level="4">самые ПРОЗРАЧНЫЕ сколы и&nbsp;трещины, за&nbsp;счет:</i>
                     </div>
                     <ul class="list-disc pl-7 text-md">
                         <li>изменения коэффициента преломления полимера (refractive index) в&nbsp;процессе ремонта до&nbsp;наилучшего значения;</li>
                         <li>light методов ремонтных воздействий (без нагрева, давления, вибрации).</li>
                     </ul>
-                    <i class="text-md font-bold">самые ПРОЧНЫЕ сколы и&nbsp;трещины, за&nbsp;счет:</i>
+                    <i class="text-md font-bold" role="heading" aria-level="4">самые ПРОЧНЫЕ сколы и&nbsp;трещины, за&nbsp;счет:</i>
                     <ul class="list-disc pl-7 text-md">
                         <li>устранения основной причины раскрытия трещин, зависящей от&nbsp;мастера;</li>
                         <li>заполнения трещин полимером подобранным по&nbsp;3&nbsp;главным характеристикам (не&nbsp;по&nbsp;вязкости);</li>
                         <li>повышения предела прочности полимера на&nbsp;разрыв (tensile strength).</li>
                     </ul>
                 </div>
-            </div>
+            </section>
 
             <div class="container flex flex-col">
-                <span class="text-lg">Обучение очно</span>
-                <span class="text-lg">
+                <p class="text-lg">Обучение очно</p>
+                <p class="text-lg">
                     Вопросы на&nbsp;
                     <a
                         href="https://t.me/glassnewtech"
-                        aria-label="свяжитесь с нами в соц сетях"
+                        aria-label="@alexnewtech — задать вопрос об обучении в Telegram (откроется в новой вкладке)"
                         target="_blank"
                         class="link-hover"
                     >
                         @alexnewtech
                     </a>
-                </span>
+                </p>
             </div>
         </div>
     </div>

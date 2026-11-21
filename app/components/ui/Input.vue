@@ -1,72 +1,41 @@
-<template>
-    <div :class="['ui-input flex flex-col relative gap-4', { _focused: focused, _filled: modelValue }]">
-        <label :for="name" class="label transition-all duration-500 pointer-events-none text-xl text-gray-400 absolute z-[2] p-4 lg:p-6 top-0 left-0">{{ label }}</label>
-        <input
-            :id="name"
-            v-maska
-            :value="modelValue"
-            :name="name"
-            :disabled="disabled"
-            :required="required"
-            :data-maska="maskData"
-            class="outline-none bg-white p-4 lg:p-6 shadow-lg text-2xl"
-            :type="type"
-            @focus="focused = true"
-            @blur="focused = false"
-            @input="$emit('update:modelValue', $event.target.value)"
-        />
-    </div>
-</template>
+<script setup lang="ts">
+defineOptions({ inheritAttrs: false });
 
-<script setup>
-defineEmits(['update:modelValue']);
-defineProps({
-    label: {
-        type: String,
-        default: ''
-    },
+const props = defineProps<{
+    id: string;
+    label: string;
+    hint?: string;
+    errorMessage: string;
+    maskData?: string;
+}>();
+const model = defineModel<string | number>();
+const invalid = ref(false);
+const description = computed(() => [
+    props.hint && `${props.id}-hint`,
+    invalid.value && `${props.id}-error`,
+].filter(Boolean).join(' ') || undefined);
 
-    name: {
-        type: String,
-        default: ''
-    },
-
-    type: {
-        type: String,
-        default: 'text'
-    },
-
-    modelValue: {
-        type: [String, Number],
-        default: null
-    },
-
-    disabled: {
-        type: Boolean,
-        default: false
-    },
-
-    required: {
-        type: Boolean,
-        default: false
-    },
-        
-    maskData: {
-        type: String,
-        default: ''
-    }
-});
-const focused = ref(false);
+function updateValidity(event: Event) {
+    if (invalid.value) invalid.value = !(event.target as HTMLInputElement).validity.valid;
+}
 </script>
 
-<style lang="scss" scoped>
-.ui-input {
-    &._filled,
-    &._focused {
-        & .label {
-            transform: translate3d(0, -3.5rem, 0);
-            font-size: 1rem;
-        }
-    }
-}
-</style>
+<template>
+    <div class="flex min-w-0 flex-col gap-2">
+        <label :for="id" class="text-xl text-slate-700">{{ label }}</label>
+        <input
+            v-bind="$attrs"
+            :id="id"
+            v-model="model"
+            v-maska
+            :data-maska="maskData"
+            :aria-invalid="invalid || undefined"
+            :aria-describedby="description"
+            class="w-full rounded border border-slate-500 bg-white p-4 text-xl shadow-sm"
+            @invalid="invalid = true"
+            @input="updateValidity"
+        />
+        <p v-if="hint" :id="`${id}-hint`" class="text-slate-700">{{ hint }}</p>
+        <p v-if="invalid" :id="`${id}-error`" class="font-semibold text-red-800">{{ errorMessage }}</p>
+    </div>
+</template>

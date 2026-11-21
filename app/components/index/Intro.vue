@@ -17,8 +17,8 @@ const addressHref = computed(() => contacts.address.href);
             <div class="intro__contacts">
                 <p class="intro__brand uppercase">Профи Гласс</p>
                 <address class="intro__address not-italic flex flex-col items-start">
-                    <a :href="addressHref" target="_blank" rel="noopener noreferrer" class="link-hover">
-                        {{ contacts.address.value }}
+                    <a :href="addressHref" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4">
+                        {{ contacts.address.value }}<span class="sr-only"> (на карте, в новой вкладке)</span>
                     </a>
                     <a :href="phoneHref" class="intro__phone link-hover underline underline-offset-4">
                         {{ contacts.phone.value }}
@@ -36,7 +36,7 @@ const addressHref = computed(() => contacts.address.href);
                 </p>
             </div>
 
-            <ul class="intro__benefits flex flex-col">
+            <ul role="list" class="intro__benefits flex flex-col">
                 <li>
                     <span class="intro__benefit-label block">придаём</span>
                     <span class="block">
@@ -65,6 +65,10 @@ const addressHref = computed(() => contacts.address.href);
     min-height: calc(100svh - var(--header-height));
     background: #061c43;
     font-family: $font-main;
+
+    &__background {
+        filter: brightness(.36);
+    }
 
     &__content {
         padding-top: 2rem;
@@ -134,6 +138,12 @@ const addressHref = computed(() => contacts.address.href);
         color: var(--intro-accent);
         font-size: clamp(1rem, 4.4vw, 1.25rem);
         line-height: 1.8;
+    }
+
+    @media (forced-colors: active) {
+        &__background {
+            display: none;
+        }
     }
 
     @media (min-width: 768px) {

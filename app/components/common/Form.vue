@@ -1,113 +1,127 @@
+<script setup lang="ts">
+import { useGlobalStore } from '~/stores/global';
+
+const props = withDefaults(defineProps<{
+    title?: string;
+    headingId?: string;
+    btnInner?: string;
+    embedded?: boolean;
+}>(), {
+    title: 'Заказать звонок',
+    btnInner: 'Связаться с нами',
+});
+
+const id = useId();
+const titleId = computed(() => props.headingId ?? `${id}-title`);
+const globalStore = useGlobalStore();
+const config = useRuntimeConfig();
+const form = useTemplateRef<HTMLFormElement>('form');
+const retry = useTemplateRef<HTMLButtonElement>('retry');
+const pending = ref(false);
+const success = ref(false);
+const error = ref('');
+
+async function onSubmit() {
+    const element = form.value;
+    if (!element || pending.value) return;
+
+    pending.value = true;
+    error.value = '';
+    try {
+        const response = await fetch(config.public.requestUrl, {
+            method: 'POST',
+            body: new FormData(element),
+            headers: { Accept: 'application/json' },
+        });
+        if (!response.ok) throw new Error('Request failed');
+
+        const hadFocus = element.contains(document.activeElement);
+        success.value = true;
+        await nextTick();
+        if (hadFocus) retry.value?.focus();
+    } catch {
+        error.value = 'Не удалось отправить заявку. Проверьте соединение и попробуйте ещё раз.';
+    } finally {
+        pending.value = false;
+    }
+}
+
+async function startAgain() {
+    success.value = false;
+    await nextTick();
+    const name = form.value?.elements.namedItem('name');
+    if (name instanceof HTMLInputElement) name.focus();
+}
+</script>
+
 <template>
     <section class="container">
-        <site-preloader :show-preloader="showPreloader" />
-        <h2 class="section-heading">{{ title }}</h2>
-        <transition name="fade" mode="out-in">
-            <form
-                v-if="!success"
-                class="inner-top-offset"
-                @submit.prevent="onSubmit"
-            >
-                <div class="flex flex-col lg:flex-row gap-8">
-                    <ui-input
-                        id="name"
-                        v-model="form.name"
-                        class="w-full lg:w-1/3"
-                        name="name"
-                        type="text"
-                        label="Имя*"
-                        required
-                    />
-                    <ui-input
-                        id="phone"
-                        v-model="form.phone"
-                        class="w-full lg:w-1/3"
-                        mask-data="+7 (###) ###-##-##"
-                        name="phone"
-                        type="tel"
-                        label="Телефон*"
-                        required
-                    />
-                </div>
-
-                <span v-if="embedded" class="inner-top-offset block">Нажимая кнопку «{{ btnInner }}» Вы даёте своё согласие на обработку <nuxt-link class="underline link-hover" to="/privacy">персональных данных</nuxt-link></span>
-
-                <span v-else class="inner-top-offset block">Нажимая кнопку «{{ btnInner }}» Вы даёте своё согласие на обработку <nuxt-link class="underline link-hover" to="/privacy" @click="globalStore.togglePopup(false)">персональных данных</nuxt-link></span>
-
-                <button
-                    class="inner-top-offset bg-slate-800 p-4 lg:p-6 shadow-lg text-2xl text-white block w-full lg:w-1/3 hover:opacity-80 transition-opacity duration-300 cursor-pointer"
-                    @click="onSubmit"
-                >
-                    {{ btnInner }}
-                </button>
-            </form>
-
-            <div v-else class="inner-top-offset flex flex-col items-center">
-                <h3 class="section-heading">заявка принята</h3>
-
-                <span class="inner-top-offset block text-2xl">Мы свяжемся с Вами в ближайшее время</span>
-                
-                <button
-                    class="inner-top-offset bg-slate-800 p-4 lg:p-6 shadow-lg text-2xl text-white block w-full lg:w-1/3 hover:opacity-80 transition-opacity duration-300 cursor-pointer"
-                    @click="success = false"
-                >
-                    Отправить ещё раз
-                </button>
+        <h2 :id="titleId" class="section-heading">{{ title }}</h2>
+        <form
+            v-if="!success"
+            ref="form"
+            method="post"
+            :action="config.public.requestUrl"
+            enctype="multipart/form-data"
+            :aria-labelledby="titleId"
+            :aria-busy="pending"
+            class="inner-top-offset"
+            @submit.prevent="onSubmit"
+        >
+            <p class="mb-3">Оба поля обязательны.</p>
+            <div class="grid gap-6 lg:grid-cols-3">
+                <ui-input
+                    :id="`${id}-name`"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    :autofocus="!embedded"
+                    label="Имя"
+                    pattern=".*\S.*"
+                    error-message="Введите имя."
+                    required
+                />
+                <ui-input
+                    :id="`${id}-phone`"
+                    name="phone"
+                    type="tel"
+                    autocomplete="tel"
+                    label="Телефон"
+                    mask-data="+7 (###) ###-##-##"
+                    pattern="\+7 \([0-9]{3}\) [0-9]{3}-[0-9]{2}-[0-9]{2}"
+                    error-message="Введите все 10 цифр номера после +7."
+                    required
+                />
             </div>
-        </transition>
+
+            <p class="inner-top-offset">
+                Нажимая кнопку «{{ btnInner }}» Вы даёте своё согласие на обработку
+                <nuxt-link class="underline link-hover" to="/privacy" @click="!embedded && globalStore.togglePopup(false)">персональных данных</nuxt-link>
+            </p>
+
+            <button type="submit" :aria-disabled="pending || undefined" class="form-button">
+                {{ btnInner }}
+            </button>
+        </form>
+
+        <site-preloader :show-preloader="pending" aria-hidden="true" />
+        <p role="status" class="mt-4 text-xl empty:m-0">
+            <template v-if="success">Заявка принята. Мы свяжемся с вами в ближайшее время.</template>
+            <template v-else-if="pending">Отправляем заявку…</template>
+        </p>
+        <p role="alert" class="mt-4 font-semibold text-red-800 empty:m-0">{{ error }}</p>
+        <button v-if="success" ref="retry" type="button" class="form-button" @click="startAgain">
+            Отправить ещё раз
+        </button>
     </section>
 </template>
 
-<script setup>
-import { useGlobalStore } from '~/stores/global';
+<style scoped lang="scss">
+.form-button {
+    @apply mt-4 lg:mt-8 block w-full lg:w-1/3 bg-slate-800 p-4 lg:p-6 shadow-lg text-2xl text-white hover:bg-slate-700;
+}
 
-defineProps({
-    title: {
-        type: String,
-        default: 'Заказать звонок'
-    },
-
-    btnInner: {
-        type: String,
-        default: 'Связаться с нами'
-    },
-
-    embedded: {
-        type: Boolean,
-        default: false
-    }
-});
-
-const globalStore = useGlobalStore();
-const config = useRuntimeConfig();
-const form = reactive({});
-const showPreloader = ref(false);
-const success = ref(false);
-
-const onSubmit = async () => {
-    const formData = new FormData();
-    formData.append('name', form?.name);
-    formData.append('phone', form?.phone);
-
-    if (form?.name && form?.phone) {
-        showPreloader.value = true;
-
-        try {
-            const res = await fetch(config.public.requestUrl, {
-                method: 'POST',
-                body: formData,
-                headers: { Accept: 'application/json' },
-            });
-            if (res.ok) {
-                success.value = true;
-            }
-            form.name = '';
-            form.phone = '';
-        } catch (e) {
-            console.error(e);
-        } finally {
-            showPreloader.value = false;
-        }
-    }
-};
-</script>
+.form-button[aria-disabled="true"] {
+    cursor: wait;
+}
+</style>

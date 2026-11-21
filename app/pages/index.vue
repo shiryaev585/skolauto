@@ -2,7 +2,8 @@
     <div class="page mb-16">
         <index-intro />
 
-        <div class="container section-top-offset flex flex-col gap-6">
+        <section class="container section-top-offset flex flex-col gap-6">
+            <h2 class="section-heading">Ремонт сколов и трещин</h2>
             <p class="text-md">
                 Из&nbsp;скола на&nbsp;лобовом стекле, рано или поздно, вырастает трещина. Это опасно, снижается обзор, что может привести к&nbsp;штрафу или невозможности пройти ТО. А&nbsp;замена стекла влечёт существенные расходы. Поэтому, остановить повреждение нужно не&nbsp;дожидаясь его разрастания! И&nbsp;лучший помощник в&nbsp;этом&nbsp;&mdash; &laquo;ПРОФИ ГЛАСС&raquo;, а&nbsp;осень, самое благоприятное время. Автосервис &laquo;ПРОФИ ГЛАСС&raquo; оказывает услуги по&nbsp;профессиональному ремонту сколов и&nbsp;трещин автостекол, обучению ремонтному мастерству и&nbsp;повышению квалификации мастеров.
             </p>
@@ -40,15 +41,15 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
         <index-result class="section-top-offset" />
 
         <div class="container section-top-offset flex flex-col gap-6">
             <div class="flex flex-col gap-2">
-                <h3 class="text-2xl font-light">
+                <h2 class="text-2xl font-light">
                     Соответствие требованиям.
-                </h3>
+                </h2>
                 <p class="text-md">
                     В&nbsp;результате ремонта ваше автостекло будет соответствовать требованиям безопасности движения, требованиям&nbsp;ТО и&nbsp;страховых компаний, калибровки системы ADAS и&nbsp;стёкол изготовленных по&nbsp;smart glass технологии.
                 </p>
@@ -66,7 +67,8 @@
 
         <index-steps class="section-top-offset" :steps="steps" />
 
-        <div class="container section-top-offset flex flex-col gap-6">
+        <section class="container section-top-offset flex flex-col gap-6">
+            <h2 class="section-heading">Гарантия на ремонт</h2>
             <p class="text-md">
                 &laquo;ПРОФИ ГЛАСС&raquo;&nbsp;&mdash; один из&nbsp;тех, где ГАРАНТИЯ на&nbsp;все виды ремонтов, в&nbsp;том числе на&nbsp;ремонт длинных трещин (до&nbsp;60-80см.)&nbsp;&mdash; 1год. А&nbsp;качество ремонта&nbsp;&mdash; на&nbsp;20% прочнее и&nbsp;прозрачнее любых других профессиональных ремонтов.
             </p>
@@ -74,15 +76,18 @@
             <p class="text-md">
                 УЧТИТЕ&nbsp;&mdash; 85% современного стекольного автобизнеса ориентированно именно на&nbsp;замену вашего автостекла! Не&nbsp;дотягивайте до&nbsp;замены&nbsp;&mdash; ремонт существенно дешевле и&nbsp;сохраняет ОРИГИНАЛЬНОЕ стекло, что важно для безопасности и&nbsp;структурой целостности автомобиля.
             </p>
-        </div>
+        </section>
 
         <common-prices class="section-top-offset" :prices="prices" />
 
-        <index-faq class="section-top-offset" :faq="faq" @toggle-answer="toggleAnswer" />
+        <index-faq class="section-top-offset" :faq="faq" />
 
         <common-form class="section-top-offset" title="Связаться с нами" embedded />
 
-        <common-contacts-info class="section-top-offset" />
+        <section class="section-top-offset" aria-labelledby="contacts-heading">
+            <h2 id="contacts-heading" class="container section-heading">Контакты</h2>
+            <common-contacts-info class="inner-top-offset" />
+        </section>
 
         <!-- <index-posts-carousel class="section-top-offset" /> -->
     </div>
@@ -92,33 +97,23 @@
 import type { MetaObject } from 'nuxt/schema';
 import { steps, prices } from '~/utils';
 
-interface Faq {
-    id: number;
-    question: string;
-    answers: string[];
-    classHeight: string;
-};
-
-const faq = reactive<Faq[]>([
+const faq = [
     {
         id: 1,
         question: 'Что сделать до ремонта?',
-        answers: ['Машину не&nbsp;мойте, стекло не&nbsp;мочите, и&nbsp;не&nbsp;протирайте, по&nbsp;возможности сохраните повреждение сухим.'],
-        classHeight: 'max-h-0'
+        answers: ['Машину не мойте, стекло не мочите, и не протирайте, по возможности сохраните повреждение сухим.']
     },
     {
         id: 2,
         question: 'В чем наше основное преимущество или выгода?',
-        answers: ['В&nbsp;том, что повреждения, отремонтированные в&nbsp;нашей мастерской, будут иметь необходимую прочность и прозрачность, стекло приобретет длительную сохранность, ремонт будет сделан по&nbsp;доступной цене.', 'Вы&nbsp;получите реальную гарантию и&nbsp;послеремонтное сопровождение.'],
-        classHeight: 'max-h-0'
+        answers: ['В том, что повреждения, отремонтированные в нашей мастерской, будут иметь необходимую прочность и прозрачность, стекло приобретет длительную сохранность, ремонт будет сделан по доступной цене.', 'Вы получите реальную гарантию и послеремонтное сопровождение.']
     },
     {
         id: 3,
         question: 'Как долго длится ремонт?',
-        answers: ['Ремонт свежих и&nbsp;сухих сколов и&nbsp;трещин занимает 1,5-2,0&nbsp;часа.', 'Ремонт мокрых или сложных сколов и&nbsp;трещин 2-3&nbsp;часа.', 'Ремонт грязных или длинных трещин от&nbsp;3&nbsp;часов.', 'Оптимальное время ремонта можно согласовать в&nbsp;момент осмотра повреждения.'],
-        classHeight: 'max-h-0'
+        answers: ['Ремонт свежих и сухих сколов и трещин занимает 1,5-2,0 часа.', 'Ремонт мокрых или сложных сколов и трещин 2-3 часа.', 'Ремонт грязных или длинных трещин от 3 часов.', 'Оптимальное время ремонта можно согласовать в момент осмотра повреждения.']
     }
-]);
+];
 
 const head: MetaObject = {
     title: 'ProfiGlass | Ремонт автостёкл в Орле',
@@ -133,12 +128,4 @@ const head: MetaObject = {
 };
 
 useHead(head);
-
-const toggleAnswer = (item: Faq) => {
-    if (item.classHeight === 'max-h-0') {
-        item.classHeight = 'max-h-64 lg:max-h-40';
-    } else {
-        item.classHeight = 'max-h-0';
-    }
-};
 </script>

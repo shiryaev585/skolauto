@@ -1,18 +1,35 @@
+<script setup lang="ts">
+const props = defineProps<{ open: boolean }>();
+const emit = defineEmits<{ close: [] }>();
+const dialog = useTemplateRef<HTMLDialogElement>('dialog');
+
+watchPostEffect(() => {
+    const element = dialog.value;
+    if (!element || element.open === props.open) return;
+    if (props.open) element.showModal();
+    else element.close();
+});
+</script>
+
 <template>
-    <div :class="[
-        'site-popup fixed top-0 left-0 right-0 w-full h-full bg-black/80 transition-opacity duration-300',
-        { 'opacity-100 z-20': isPopup, 'opacity-0 z-[-1]': ! isPopup }
-        ]">
-        <ui-close-btn class="z-[2]" @click="globalStore.togglePopup(false)" />
-        <div class="bg-white fixed bottom-1/2 right-1/2 translate-x-1/2 translate-y-1/2 w-full md:w-3/4">
-            <slot></slot>
-        </div>
-    </div>
+    <dialog ref="dialog" class="site-popup" @cancel.prevent="emit('close')">
+        <ui-close-btn @click="emit('close')" />
+        <slot />
+    </dialog>
 </template>
 
-<script setup>
-import { useGlobalStore } from '~/stores/global';
+<style scoped>
+.site-popup {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    max-width: calc(100% - 1rem);
+    max-height: calc(100dvh - 1rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
 
-const globalStore = useGlobalStore();
-const isPopup = computed(() => globalStore.isPopup);
-</script>
+.site-popup::backdrop {
+    background: rgb(0 0 0 / 80%);
+}
+</style>
