@@ -30,52 +30,60 @@ const photos = [
     { src: image12, alt: 'Скол 45 мм на стекле Lanos до и после ремонта. На правом снимке остался бледный след.' },
 ];
 const activePhoto = ref<(typeof photos)[number] | null>(null);
+const swiperReady = shallowRef(false);
 const a11y = {
     itemRoleDescriptionMessage: 'слайд',
     slideLabelMessage: '{{index}} из {{slidesLength}}',
     paginationBulletMessage: 'Показать фото {{index}}',
 };
+
+onMounted(async () => {
+    try {
+        const { register } = await import('swiper/element/bundle');
+        register();
+        swiperReady.value = true;
+    } catch (error) {
+        console.error('Не удалось загрузить слайдер галереи.', error);
+    }
+});
 </script>
 
 <template>
     <section class="container" aria-labelledby="results-heading">
         <h2 id="results-heading" class="section-heading">Результат</h2>
-        <client-only>
-            <swiper-container
-                :slides-per-view="1"
-                :space-between="15"
-                :loop="true"
-                :watch-slides-progress="true"
-                :a11y="a11y"
-                :pagination="{ clickable: true, bulletElement: 'button' }"
-                :breakpoints="{
-                    768: { slidesPerView: 2 },
-                    1024: { slidesPerView: 3 },
-                    1280: { slidesPerView: 4 },
-                }"
-                class="inner-top-offset"
-            >
-                <swiper-slide v-for="(photo, i) in photos" :key="i">
-                    <button
-                        type="button"
-                        class="photo-button block w-full hover:opacity-90"
-                        aria-haspopup="dialog"
-                        aria-controls="photo-dialog"
-                        @click="activePhoto = photo"
-                    >
-                        <span class="sr-only">Увеличить фото {{ i + 1 }}. </span>
-                        <img :src="photo.src" :alt="photo.alt" loading="lazy" class="h-96 object-cover w-full" />
-                    </button>
-                </swiper-slide>
-            </swiper-container>
-            <template #fallback>
-                <ul role="list" aria-label="Фотографии ремонта" class="inner-top-offset flex gap-4 overflow-x-auto">
-                    <li v-for="(photo, i) in photos" :key="i" class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 shrink-0">
-                        <a :href="photo.src"><img :src="photo.src" :alt="photo.alt" loading="lazy" class="h-96 w-full object-cover" /></a>
-                    </li>
-                </ul>
-            </template>
-        </client-only>
+        <swiper-container
+            v-if="swiperReady"
+            :slides-per-view="1"
+            :space-between="15"
+            :loop="true"
+            :watch-slides-progress="true"
+            :a11y="a11y"
+            :pagination="{ clickable: true, bulletElement: 'button' }"
+            :breakpoints="{
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+                1280: { slidesPerView: 4 },
+            }"
+            class="inner-top-offset"
+        >
+            <swiper-slide v-for="(photo, i) in photos" :key="i">
+                <button
+                    type="button"
+                    class="photo-button block w-full hover:opacity-90"
+                    aria-haspopup="dialog"
+                    aria-controls="photo-dialog"
+                    @click="activePhoto = photo"
+                >
+                    <span class="sr-only">Увеличить фото {{ i + 1 }}. </span>
+                    <img :src="photo.src" :alt="photo.alt" loading="lazy" class="h-96 object-cover w-full" />
+                </button>
+            </swiper-slide>
+        </swiper-container>
+        <ul v-else role="list" aria-label="Фотографии ремонта" class="inner-top-offset flex gap-4 overflow-x-auto">
+            <li v-for="(photo, i) in photos" :key="i" class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 shrink-0">
+                <a :href="photo.src"><img :src="photo.src" :alt="photo.alt" loading="lazy" class="h-96 w-full object-cover" /></a>
+            </li>
+        </ul>
 
         <site-popup
             id="photo-dialog"

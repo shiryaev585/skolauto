@@ -91,6 +91,11 @@ export default defineNuxtConfig({
         },
     },
     css: ['~/assets/style/main.scss'],
+    vue: {
+        compilerOptions: {
+            isCustomElement: (tag) => tag === 'swiper-container' || tag === 'swiper-slide',
+        },
+    },
     vite: {
         css: {
             preprocessorOptions: {
@@ -119,7 +124,6 @@ export default defineNuxtConfig({
                 },
             },
         ],
-        'nuxt-swiper',
         'vue-yandex-maps/nuxt',
         'nuxt-gtag'
     ],
