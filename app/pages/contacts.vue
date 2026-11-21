@@ -64,7 +64,7 @@ useHead(head);
 
 <style lang="scss" scoped>
 .map {
-    height: fit-content;
+    height: 75vh;
 }
 
 :deep(.__ymap_container) {
